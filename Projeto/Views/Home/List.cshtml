@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Projeto.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Lista";
+}
+
+<h1>Lista</h1>
+
+<div class="form-group">
+    <input type="text" id="pesquisa" class="form-control" data-list=".list" />
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                CNPJ/CPF
+            </th>
+            <th>
+                Data Cadastro
+            </th>
+            <th>
+                Telefone
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="list">
+        @foreach (var cliente in Model)
+        {
+            @if (!cliente.IsDeleted)
+            {
+                <tr>
+                    <td>
+                        @cliente.Nome.ToUpper()
+                    </td>
+                    @if (cliente.Pf_Pj)
+                    {
+                        <td>
+                            @cliente.Documento
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @cliente.Documento
+                        </td>
+                    }
+                    <td>
+                        @cliente.DataCadastro.Day/@cliente.DataCadastro.Month/@cliente.DataCadastro.Year
+                    </td>
+                    <td>
+                        @cliente.Telefone
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@cliente.Id" class="btn btn-info">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@cliente.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+
+            }
+
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script src="~/lib/hideseek/jquery.hideseek.min.js"></script>
+    <script src="~/js/pesquisa.js"></script>
+}

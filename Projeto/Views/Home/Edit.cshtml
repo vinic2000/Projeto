@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Editar";
+}
+
+@model Cliente
+
+<h1>Cadastro de Cliente</h1>
+<div>
+    <form asp-action="Edit" class="form">
+        <div class="form-group">
+            <input type="text" id="Nome" asp-for="Nome" class="form-control" placeholder="Nome" />
+        </div>
+
+        <div class="radio">
+            <label><input id="radio_pl" type="radio" asp-for="Pf_Pj" value="true" /> PL </label>
+            <label><input id="radio_pj" type="radio" asp-for="Pf_Pj" value="false" /> PJ </label>
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="Documento" asp-for="Documento" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <input type="date" id="DataCadastro" asp-for="DataCadastro" class="form-control" placeholder="Data do Cadastro" />
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="Telefone" asp-for="Telefone" class="form-control" placeholder="Telefone" />
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-success" type="submit">Gravar</button>
+            <a class="btn btn-link" asp-action="list">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <script src="~/lib/jQuery-Mask-Plugin-master/dist/jquery.mask.min.js"></script>
+    <script src="~/js/mask.js"></script>
+}

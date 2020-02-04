@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model Cliente
+
+<h1>Cadastro de Cliente</h1>
+<div>
+    <form asp-action="Create" class="form">
+        <div class="form-group">
+            <label asp-for="Nome">Nome</label>
+            <input type="text" id="Nome" asp-for="Nome" class="form-control" placeholder="Nome completo"/>
+        </div>
+
+        <div class="radio">
+            <label><input id="radio_pl" type="radio" asp-for="Pf_Pj" value="true" checked/> PL </label>
+            <label><input id="radio_pj" type="radio" asp-for="Pf_Pj" value="false" /> PJ </label>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Documento">Documento de Identidade</label>
+            <input type="text" id="Documento" asp-for="Documento" class="form-control" placeholder="000.000.000-00" data-mask="000.000.000-00"/>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DataCadastro">Data de Cadastro</label>
+            <input type="date" id="DataCadastro" asp-for="DataCadastro" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Telefone">Telefone</label>
+            <input type="text" id="Telefone" asp-for="Telefone" class="form-control" placeholder="Telefone" />
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Gravar</button>
+            <a class="btn btn-link" asp-action="list">lista</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <script src="~/lib/jQuery-Mask-Plugin-master/dist/jquery.mask.min.js"></script>
+    <script src="~/js/mask.js"></script>
+    <script src="~/js/radio.js"></script>
+    <script src="~/lib/jquery-validation-1.19.1/dist/jquery.validate.min.js"></script>
+    <script src="~/js/validator.js"></script>
+}

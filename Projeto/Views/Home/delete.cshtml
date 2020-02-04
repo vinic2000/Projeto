@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Delete";
+}
+
+@model Cliente
+
+<form asp-action="Del">
+    <div class="form-group">
+        <input type="hidden" asp-for="Id" class="form-control"/>
+        <input type="text" asp-for="Nome" class="form-control"disabled="" />
+    </div>
+
+    <div class="form-group">
+        <input type="text" id="Documento" asp-for="Documento" class="form-control"disabled="" />
+    </div>
+
+    <div class="form-group">
+        <input type="date" id="DataCadastro" asp-for="DataCadastro" class="form-control" disabled="" />
+    </div>
+
+    <div class="form-group">
+        <input type="text" id="telefone" asp-for="Telefone" class="form-control"disabled="" />
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-danger">Deletar</button>
+        <a class="btn btn-link" asp-action="List">Cancelar</a>
+    </div>
+</form>
